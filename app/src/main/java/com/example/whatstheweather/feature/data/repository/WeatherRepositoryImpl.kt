@@ -12,47 +12,56 @@ import retrofit2.HttpException
 import java.io.IOException
 
 
-
-
 class WeatherRepositoryImpl(
     private val api: WeatherApi,
     private val dao: WeatherDao
-): WeatherRepository {
+) : WeatherRepository {
     override fun getWeatherInfo(
         lat: Int,
         lon: Int,
         cnt: Int,
         appid: String
-    ): Flow<Resource<List<WeatherInfo>>> =flow {
+    ): Flow<Resource<List<WeatherInfo>>> = flow {
 
         emit(Resource.Loading())
 
-        val weatherInfos=dao.getAllWeatherInfos().map{
+        val weatherInfos = dao.getAllWeatherInfos().map {
             it.toWeatherInfo()
         }
 
-        emit(Resource.Loading(data=weatherInfos))
+        emit(Resource.Loading(data = weatherInfos))
 
-        try{
+        try {
 
-            val remoteWeatherInfo=api.getWeatherList(19.0760,72.8777,20,"0e1fe54ed3c19a2d9662b114fb3ff045")
-                .list.map{
-                    it.toMainWeatherEntity()
-                }
+            val remoteWeatherInfo =
+                api.getWeatherList(19.0760, 72.8777, 20, "0e1fe54ed3c19a2d9662b114fb3ff045")
+                    .list.map {
+                        it.toMainWeatherEntity()
+                    }
 
             dao.deleteWordInfos()
             dao.insertWordInfos(remoteWeatherInfo)
 
-        }catch(e: HttpException){
-            emit(Resource.Error("Failed to load from the internet due to $e,Displaying old data",weatherInfos))
-        }catch(e:IOException){
-
+        } catch (e: HttpException) {
+            emit(
+                Resource.Error(
+                    "Failed to load from the internet due to $e,Displaying old data",
+                    weatherInfos
+                )
+            )
+        } catch (e: IOException) {
+            emit(
+                Resource.Error(
+                    "Failed to load from the internet due to $e,Displaying old data",
+                    weatherInfos
+                )
+            )
         }
 
-        val updatedWeatherInfos=dao.getAllWeatherInfos().map{
+        val updatedWeatherInfos = dao.getAllWeatherInfos().map {
             it.toWeatherInfo()
         }
 
-        emit(Resource.Success(data=updatedWeatherInfos))
+        emit(Resource.Success(data = updatedWeatherInfos))
     }
 }
