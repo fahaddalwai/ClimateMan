@@ -2,6 +2,7 @@ package com.example.whatstheweather.feature.domain.repository
 
 import com.example.whatstheweather.core.util.Resource
 import com.example.whatstheweather.feature.domain.model.EntireWeather
+import com.example.whatstheweather.feature.domain.model.WeatherInfo
 import kotlinx.coroutines.flow.Flow
 import retrofit2.http.Query
 
@@ -11,5 +12,5 @@ interface WeatherRepository {
         lon: Int,
         cnt: Int,
         appid: String,
-    ): Flow<Resource<List<EntireWeather>>>
+    ): Flow<Resource<List<WeatherInfo>>>
 }
