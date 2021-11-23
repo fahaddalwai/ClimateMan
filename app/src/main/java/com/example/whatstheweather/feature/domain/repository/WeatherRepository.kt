@@ -8,8 +8,8 @@ import retrofit2.http.Query
 
 interface WeatherRepository {
     fun getWeatherInfo(
-        lat: Int,
-        lon: Int,
+        lat: Double,
+        lon: Double,
         cnt: Int,
         appid: String,
     ): Flow<Resource<List<WeatherInfo>>>

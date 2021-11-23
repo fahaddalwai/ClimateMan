@@ -17,10 +17,10 @@ class WeatherRepositoryImpl(
     private val dao: WeatherDao
 ) : WeatherRepository {
     override fun getWeatherInfo(
-        lat: Int,
-        lon: Int,
+        lat: Double,
+        lon: Double,
         cnt: Int,
-        appid: String
+        appid: String,
     ): Flow<Resource<List<WeatherInfo>>> = flow {
 
         emit(Resource.Loading())
@@ -34,7 +34,7 @@ class WeatherRepositoryImpl(
         try {
 
             val remoteWeatherInfo =
-                api.getWeatherList(19.0760, 72.8777, 20, "0e1fe54ed3c19a2d9662b114fb3ff045")
+                api.getWeatherList(lat, lon, cnt, appid)
                     .list.map {
                         it.toMainWeatherEntity()
                     }
