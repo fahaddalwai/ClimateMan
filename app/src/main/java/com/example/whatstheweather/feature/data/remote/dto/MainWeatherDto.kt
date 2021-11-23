@@ -1,6 +1,7 @@
 package com.example.whatstheweather.feature.data.remote.dto
 
 import com.example.whatstheweather.MainActivity
+import com.example.whatstheweather.feature.data.local.entity.WeatherInfoEntity
 import com.example.whatstheweather.feature.domain.model.MainWeather
 
 data class MainWeatherDto(
@@ -26,4 +27,15 @@ data class MainWeatherDto(
             }
         )
     }
+
+    fun toMainWeatherEntity(): WeatherInfoEntity {
+        return WeatherInfoEntity(
+            name=name,
+            temp=main.temp,
+            feels_like=main.feels_like,
+            description=weather[0].description,
+            icon=weather[0].icon
+        )
+    }
+
 }
