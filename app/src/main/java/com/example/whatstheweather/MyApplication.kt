@@ -1,4 +1,7 @@
 package com.example.whatstheweather
 
-class MyApplication {
+import android.app.Application
+
+class MyApplication: Application(
+) {
 }
