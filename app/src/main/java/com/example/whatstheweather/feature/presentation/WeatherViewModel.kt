@@ -39,7 +39,7 @@ class WeatherViewModel @Inject constructor(private val getWeatherInfo: GetWeathe
                                 isLoading = false
                             )
                             _showProgressBar.value = false
-                            Log.i("Checking api",_weatherState.value.toString())
+
                         }
                         is Resource.Loading -> {
                             _weatherState.value = WeatherInfoState(
@@ -47,7 +47,7 @@ class WeatherViewModel @Inject constructor(private val getWeatherInfo: GetWeathe
                                 isLoading = true
                             )
                             _showProgressBar.value = true
-                            Log.i("Checking api",_weatherState.value.toString())
+
                         }
                         is Resource.Error -> {
                             _weatherState.value = WeatherInfoState(
@@ -55,7 +55,7 @@ class WeatherViewModel @Inject constructor(private val getWeatherInfo: GetWeathe
                                 isLoading = false
                             )
                             _showProgressBar.value = false
-                            Log.i("Checking api",_weatherState.value.toString())
+
                         }
                     }
                 }.launchIn(this)

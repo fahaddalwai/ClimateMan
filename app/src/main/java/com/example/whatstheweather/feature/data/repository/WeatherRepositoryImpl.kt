@@ -64,6 +64,6 @@ class WeatherRepositoryImpl(
         }
 
         emit(Resource.Success(data = updatedWeatherInfos))
-        Log.i("Checking api1", updatedWeatherInfos.toString())
+
     }
 }
