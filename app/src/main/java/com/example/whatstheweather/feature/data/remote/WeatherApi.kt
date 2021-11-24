@@ -7,7 +7,7 @@ import retrofit2.http.Query
 
 interface WeatherApi {
 
-    @GET("data/2.5/find?lat={latitude}&lon={longitude}&cnt={count}&appid={appid}")
+    @GET("data/2.5/find")
     suspend fun getWeatherList(
         @Query("lat") lat: Double,
         @Query("lon") lon: Double,
@@ -16,7 +16,7 @@ interface WeatherApi {
     ):EntireWeatherDto
 
     companion object{
-        const val BASE_URL="https://api.dictionaryapi.dev"
+        const val BASE_URL="https://api.openweathermap.org/"
     }
 
 }

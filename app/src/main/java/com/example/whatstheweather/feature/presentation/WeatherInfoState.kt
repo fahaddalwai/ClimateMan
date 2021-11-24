@@ -4,6 +4,6 @@ import com.example.whatstheweather.feature.domain.model.WeatherInfo
 
 
 data class WeatherInfoState(
-    val wordInfoItems: List<WeatherInfo> =emptyList(),
+    val weatherInfoItems: List<WeatherInfo> =emptyList(),
     val isLoading: Boolean = false
 )

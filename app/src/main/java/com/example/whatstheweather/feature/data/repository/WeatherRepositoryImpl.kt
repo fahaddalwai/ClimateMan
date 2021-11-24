@@ -1,5 +1,6 @@
 package com.example.whatstheweather.feature.data.repository
 
+import android.util.Log
 import com.example.whatstheweather.core.util.Resource
 import com.example.whatstheweather.feature.data.local.WeatherDao
 import com.example.whatstheweather.feature.data.remote.WeatherApi
@@ -63,5 +64,6 @@ class WeatherRepositoryImpl(
         }
 
         emit(Resource.Success(data = updatedWeatherInfos))
+        Log.i("Checking api1", updatedWeatherInfos.toString())
     }
 }
