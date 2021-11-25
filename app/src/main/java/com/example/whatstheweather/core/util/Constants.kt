@@ -1,6 +1,5 @@
 package com.example.whatstheweather.core.util
 
-import retrofit2.http.Query
 
 object Constants {
     const val BASE_URL="https://api.openweathermap.org/"

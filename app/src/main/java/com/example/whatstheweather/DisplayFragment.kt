@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.viewModels
+import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import com.example.favfoodroom.viewfavfood.WeatherAdapter
@@ -39,6 +40,12 @@ class DisplayFragment : Fragment() {
             }
         })
 
+
+        viewModel.showProgressBar.observe(viewLifecycleOwner,{
+            if(it){
+                binding.progressBar.visibility=View.VISIBLE
+            }
+        })
         return binding.root
     }
 
