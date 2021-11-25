@@ -2,9 +2,9 @@ package com.example.whatstheweather.feature.di
 
 import android.app.Application
 import androidx.room.Room
+import com.example.whatstheweather.core.util.Constants.BASE_URL
 import com.example.whatstheweather.feature.data.local.WeatherDatabase
 import com.example.whatstheweather.feature.data.remote.WeatherApi
-import com.example.whatstheweather.feature.data.remote.WeatherApi.Companion.BASE_URL
 import com.example.whatstheweather.feature.data.repository.WeatherRepositoryImpl
 import com.example.whatstheweather.feature.domain.repository.WeatherRepository
 import com.example.whatstheweather.feature.domain.usecase.GetWeatherInfoUseCase

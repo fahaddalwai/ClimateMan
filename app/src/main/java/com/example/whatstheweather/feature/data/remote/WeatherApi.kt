@@ -15,8 +15,5 @@ interface WeatherApi {
         @Query("appid") appid: String,
     ):EntireWeatherDto
 
-    companion object{
-        const val BASE_URL="https://api.openweathermap.org/"
-    }
 
 }

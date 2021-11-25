@@ -5,6 +5,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.whatstheweather.core.util.Constants.APP_ID
+import com.example.whatstheweather.core.util.Constants.COUNT
+import com.example.whatstheweather.core.util.Constants.LAT
+import com.example.whatstheweather.core.util.Constants.LON
 import com.example.whatstheweather.core.util.Resource
 import com.example.whatstheweather.feature.domain.usecase.GetWeatherInfoUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -12,6 +16,8 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+
+
 
 @HiltViewModel
 class WeatherViewModel @Inject constructor(private val getWeatherInfo: GetWeatherInfoUseCase) : ViewModel() {
@@ -30,7 +36,7 @@ class WeatherViewModel @Inject constructor(private val getWeatherInfo: GetWeathe
 
     fun updateList() {
         viewModelScope.launch {
-            getWeatherInfo(20.59, 78.9629, 20, "0e1fe54ed3c19a2d9662b114fb3ff045")
+            getWeatherInfo(LAT, LON, COUNT, APP_ID)
                 .onEach { result ->
                     when (result) {
                         is Resource.Success -> {
