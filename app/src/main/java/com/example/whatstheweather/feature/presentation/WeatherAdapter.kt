@@ -28,8 +28,8 @@ class WeatherAdapter : ListAdapter<WeatherInfo, WeatherAdapter.ViewHolder>(Weath
 
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val food=getItem(position)!!
-        holder.bind(food)
+        val weather=getItem(position)!!
+        holder.bind(weather)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
