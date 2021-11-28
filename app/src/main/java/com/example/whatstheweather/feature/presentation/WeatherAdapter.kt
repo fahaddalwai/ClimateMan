@@ -1,4 +1,4 @@
-package com.example.favfoodroom.viewfavfood
+package com.example.whatstheweather.feature.presentation
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.whatstheweather.databinding.ListItemBinding
 import com.example.whatstheweather.feature.domain.model.WeatherInfo
 
-class WeatherAdapter() : ListAdapter<WeatherInfo, WeatherAdapter.ViewHolder>(SleepNightDiffCallback()) {
+class WeatherAdapter : ListAdapter<WeatherInfo, WeatherAdapter.ViewHolder>(WeatherDiffCallback()) {
 
     class ViewHolder private constructor(val binding: ListItemBinding) : RecyclerView.ViewHolder(binding.root){
 
@@ -29,9 +29,6 @@ class WeatherAdapter() : ListAdapter<WeatherInfo, WeatherAdapter.ViewHolder>(Sle
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val food=getItem(position)!!
-
-
-
         holder.bind(food)
     }
 
@@ -44,9 +41,7 @@ class WeatherAdapter() : ListAdapter<WeatherInfo, WeatherAdapter.ViewHolder>(Sle
 }
 
 
-
-
-class SleepNightDiffCallback : DiffUtil.ItemCallback<WeatherInfo>() {
+class WeatherDiffCallback : DiffUtil.ItemCallback<WeatherInfo>() {
 
     override fun areItemsTheSame(oldItem: WeatherInfo, newItem: WeatherInfo): Boolean {
         return oldItem.name == newItem.name

@@ -5,11 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.viewModels
-import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
-import com.example.favfoodroom.viewfavfood.WeatherAdapter
+import com.example.whatstheweather.feature.presentation.WeatherAdapter
 import com.example.whatstheweather.databinding.FragmentDisplayBinding
 import com.example.whatstheweather.feature.presentation.WeatherViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -31,7 +29,7 @@ class DisplayFragment : Fragment() {
         binding.viewModel=viewModel
         binding.lifecycleOwner=this
 
-        val adapter=WeatherAdapter()
+        val adapter= WeatherAdapter()
         binding.recyclerView.adapter= adapter
 
         viewModel.state.observe(viewLifecycleOwner,{
