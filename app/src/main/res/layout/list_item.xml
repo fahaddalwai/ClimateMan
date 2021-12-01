@@ -11,12 +11,19 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:cardBackgroundColor="@color/white"
+
+        app:cardCornerRadius="20dp"
+        app:cardElevation="10dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/teal_200">
+            android:background="@drawable/card_list_item"
+
+            android:padding="8dp">
 
             <TextView
                 android:id="@+id/textView"
@@ -35,9 +42,9 @@
                 android:layout_marginTop="8dp"
                 android:text="@string/temperature"
                 android:textSize="24sp"
-                app:temp="@{weatherInfo}"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView" />
+                app:layout_constraintTop_toBottomOf="@+id/textView"
+                app:temp="@{weatherInfo}" />
 
             <TextView
                 android:id="@+id/textView3"
@@ -54,10 +61,11 @@
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
+                android:scaleType="fitXY"
                 app:icon="@{weatherInfo.icon}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
