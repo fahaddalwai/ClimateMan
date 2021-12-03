@@ -42,6 +42,8 @@ class DisplayFragment : Fragment() {
         viewModel.showProgressBar.observe(viewLifecycleOwner,{
             if(it){
                 binding.progressBar.visibility=View.VISIBLE
+            }else{
+                binding.progressBar.visibility=View.INVISIBLE
             }
         })
         return binding.root

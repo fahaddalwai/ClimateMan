@@ -22,6 +22,7 @@ class WeatherRepositoryImpl(
         lon: Double,
         cnt: Int,
         appid: String,
+        metrics:String
     ): Flow<Resource<List<WeatherInfo>>> = flow {
 
         emit(Resource.Loading())
@@ -35,7 +36,7 @@ class WeatherRepositoryImpl(
         try {
 
             val remoteWeatherInfo =
-                api.getWeatherList(lat, lon, cnt, appid)
+                api.getWeatherList(lat, lon, cnt, appid, metrics)
                     .list.map {
                         it.toMainWeatherEntity()
                     }

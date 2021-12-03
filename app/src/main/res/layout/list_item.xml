@@ -7,6 +7,9 @@
         <variable
             name="weatherInfo"
             type="com.example.whatstheweather.feature.domain.model.WeatherInfo"/>
+        <variable
+            name="viewModel"
+            type="com.example.whatstheweather.feature.presentation.WeatherViewModel" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -22,7 +25,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/card_list_item"
-
             android:padding="8dp">
 
             <TextView

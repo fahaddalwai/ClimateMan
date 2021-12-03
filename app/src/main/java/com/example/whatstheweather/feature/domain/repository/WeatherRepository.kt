@@ -12,5 +12,6 @@ interface WeatherRepository {
         lon: Double,
         cnt: Int,
         appid: String,
+        metrics:String
     ): Flow<Resource<List<WeatherInfo>>>
 }

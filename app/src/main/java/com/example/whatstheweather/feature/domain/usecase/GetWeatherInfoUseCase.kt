@@ -16,8 +16,9 @@ class GetWeatherInfoUseCase(
         lon: Double,
         cnt: Int,
         appid: String,
+        metrics:String
     ): Flow<Resource<List<WeatherInfo>>> {
-        return repository.getWeatherInfo(lat, lon, cnt, appid)
+        return repository.getWeatherInfo(lat, lon, cnt, appid,metrics)
     }
 
 }

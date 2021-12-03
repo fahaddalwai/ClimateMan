@@ -13,6 +13,7 @@ interface WeatherApi {
         @Query("lon") lon: Double,
         @Query("cnt") cnt: Int,
         @Query("appid") appid: String,
+        @Query("units") units:String
     ):EntireWeatherDto
 
 

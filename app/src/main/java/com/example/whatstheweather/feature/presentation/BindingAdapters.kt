@@ -1,5 +1,6 @@
 package com.example.whatstheweather.feature.presentation
 
+import android.annotation.SuppressLint
 import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
@@ -8,19 +9,21 @@ import androidx.databinding.BindingAdapter
 import coil.load
 import com.example.whatstheweather.feature.domain.model.WeatherInfo
 
+@SuppressLint("SetTextI18n")
 @BindingAdapter("name")
 fun TextView.setName(item: WeatherInfo?) {
     item?.let {
-        text = item.name
+        text = "location is ${item.name}"
         Log.i("name",text as String)
     }
 }
 
 
+@SuppressLint("SetTextI18n")
 @BindingAdapter("feels_like")
 fun TextView.setFeelsLike(item: WeatherInfo?) {
     item?.let {
-        text= item.feels_like.toString()
+        text= "It feels like ${item.feels_like}"
         Log.i("food",text as String)
     }
 }
@@ -28,7 +31,7 @@ fun TextView.setFeelsLike(item: WeatherInfo?) {
 @BindingAdapter("description")
 fun TextView.setDescription(item: WeatherInfo?) {
     item?.let {
-        text= item.description.toString()
+        text= item.description
         Log.i("food",text as String)
     }
 }
